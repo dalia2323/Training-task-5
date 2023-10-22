@@ -1,21 +1,21 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 import { ItemTypes } from "../constant/ItemTypes";
-
 function Card({ country }) {
   const [{ isDragging }, drag] = useDrag({
-    type: ItemTypes.CARD, // Use the defined item type
+    type: ItemTypes.CARD,
+    item: {
+      type: ItemTypes.CARD,
+      name: country.name.common,
+      imgSrc: country.flags.png,
+    },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
-
   const opacity = isDragging ? 0.5 : 1;
-
   return (
-    <div
-      ref={drag}
-      style={{ opacity }}
+    <div ref={drag} style={{ opacity }}
       className="col-lg-4 col-md-4 col-sm-6 f-sm-2 mb-3"
     >
       <div className="card rounded-3 mb-3 me-3 ms-3 shadow-sm" id="card">
@@ -32,9 +32,9 @@ function Card({ country }) {
           </p>
           <button
             className="favorite-button"
-            // onClick={() =>
-            //   toggleFavorite(country.name.common, country.flags.png)
-            // }
+          // onClick={() =>
+          //   toggleFavorite(country.name.common, country.flags.png)
+          // }
           >
             <i className="fa-solid fa-star favorite-icon "></i>
           </button>
@@ -43,5 +43,4 @@ function Card({ country }) {
     </div>
   );
 }
-
 export default Card;
