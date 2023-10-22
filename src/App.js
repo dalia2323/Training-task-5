@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import NavBar from './component/navbar';
@@ -7,13 +7,9 @@ import Countries from './component/countries';
 import Favrioute from './component/favrioute';
 import SearchBar from './component/search';
 import RegionSelector from './component/region-selector';
-
+import useDarkMode from './useDarkMode';
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  function toggleDarkMode() {
-    setDarkMode((prevMode) => !prevMode);
-  }
+  const { darkMode, toggleDarkMode } = useDarkMode(); // Use the custom hook
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -25,7 +21,7 @@ function App() {
             <RegionSelector darkMode={darkMode} />
           </div>
         </section>
-        <section className="ms-lg-5 me-lg-5  d-flex justify-content-between mt-5 card-favorite-section">
+        <section className="ms-lg-5 me-lg-5 d-flex justify-content-between mt-5 card-favorite-section">
           <Favrioute />
           <Countries />
         </section>
