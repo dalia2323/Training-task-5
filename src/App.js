@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import NavBar from './component/navbar';
 import './App.css';
 import Countries from './component/countries';
@@ -14,7 +16,7 @@ function App() {
   }
 
   return (
-    <>
+    <DndProvider backend={HTML5Backend}>
       <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <main className={`container-fluid me-lg-5 pt-4 ${darkMode ? 'dark-mode' : ''}`}>
         <section className="ms-lg-5">
@@ -28,7 +30,7 @@ function App() {
           <Countries />
         </section>
       </main>
-    </>
+    </DndProvider>
   );
 }
 
