@@ -37,7 +37,7 @@ const Favrioute = () => {
                         <p className="favourite-item-name">{c.name}</p>
                         <button
                             className="border-0 cancel-button"
-                        //   onClick={() => removeFavorite(index)}
+                        onClick={() => removeFavorite(index)}
                         >
                             <i
                                 className="fa-solid fa-circle-xmark"
