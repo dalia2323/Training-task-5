@@ -19,7 +19,7 @@ function Card({ country }) {
       className="col-lg-4 col-md-4 col-sm-6 f-sm-2 mb-3"
     >
       <div className="card rounded-3 mb-3 me-3 ms-3 shadow-sm" id="card">
-        <img src={country.flags.png} className="card-img-top" alt="..." />
+        <img src={country.flags.png} className="card-img-top card-img" alt="..." />
         <div className="card-body mb-3">
           <h5 className="card-">{country.name.common}</h5>
           <p className="card-text">

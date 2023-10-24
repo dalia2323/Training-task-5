@@ -3,31 +3,38 @@
   margin: 0px;
   padding: 0px;
 }
-.country-detail{
+
+.country-detail {
   font-weight: 700;
+}
 
+a:hover {
+  color: unset;
 }
-a:hover{
-color: unset;
+
+.navbar-title {
+  color: black;
 }
-.navbar-title{
-color: black;
-}
+
 ::-webkit-input-placeholder {
-color: #858585;
-font-family: 'Nunito Sans', sans-serif;
-font-weight: 300;
-font-size: 14px;
+  color: #858585;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
 }
 
-header,.search-icon{
+header,
+.search-icon {
   background-color: #ffff;
 }
-body{
+
+body {
   background-color: #fafafa;
 }
+
 .dark-mode {
-  background-color: #202c37;;
+  background-color: #202c37;
+  ;
   color: #fff;
 }
 
@@ -35,46 +42,49 @@ body{
   background-color: #2b3945;
   color: #fff;
 }
-.dark-mode .search-icon  {
+
+.dark-mode .search-icon {
   background-color: #2b3945;
   color: #fff;
 }
-.dark-mode #container::-webkit-scrollbar-track
-{
-  background-color: #2b3945;
 
-}
-.dark-mode .favorite-button
-{
+.dark-mode #container::-webkit-scrollbar-track {
   background-color: #2b3945;
-
 }
-.dark-mode .favourite-container::-webkit-scrollbar-track
-{
+
+.dark-mode .favorite-button {
+  background-color: #2b3945;
+}
+
+.dark-mode .favourite-container::-webkit-scrollbar-track {
   background-color: #202c37;
-
 }
 
-.dark-mode #darkModeToggle{
+.dark-mode #darkModeToggle {
   color: #fff;
 }
+
 .dark-mode .card {
-  background-color:#2b3945;
+  background-color: #2b3945;
   color: #fff;
   border: none;
 }
-.dark-mode .favourite-section{
-  background-color:#2b3945;
+
+.dark-mode .favourite-section {
+  background-color: #2b3945;
   color: #fff;
   border: none;
 }
-.dark-mode .cancel-button{
-  background-color:#2b3945;
+
+.dark-mode .cancel-button {
+  background-color: #2b3945;
 
 }
+
 .dark-mode .card-title {
   color: #fff;
 }
+
 .dark-mode .navbar-title {
   color: #fff;
 }
@@ -82,6 +92,7 @@ body{
 .dark-mode .card-text {
   color: #ccc;
 }
+
 .dark-mode .search {
   background-color: #2b3945;
   color: #fff;
@@ -92,167 +103,194 @@ body{
   color: #fff;
   border: 1px solid #555;
 }
+
 /* font 800 */
-.navbar-title ,.card-title,button{
+.navbar-title,
+.card-title,
+button {
 
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 800;
 }
+
 /* font 600 */
-select,.country-detail{
+select,
+.country-detail {
   font-family: 'Nunito Sans', sans-serif;
-  font-weight: 600 ;
+  font-weight: 600;
 }
+
 /* font 300 */
-.country-detail-2{
+.country-detail-2 {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
   font-weight: 300;
 }
-.w-30{
+
+.w-30 {
   margin-left: 1%;
   width: 30%;
 }
 
-.favourite-section{
-width: 20% !important;
-height: 70%;
-position: fixed;
-background-color: #ffff;
-border-radius: 6px;
-
-
-}
-.h-80{
-height: 80%;
-
+.favourite-section {
+  width: 20% !important;
+  height: 70%;
+  position: fixed;
+  background-color: #ffff;
+  border-radius: 6px;
 }
 
-.favourite-container{
-flex-direction: column;
-overflow-y: scroll;
-overflow-x: hidden;
-padding-right: .5rem;
-align-items: center;
-}
-.favourite-item-img{
-width: 15%;
-height: 5%; 
-border-bottom-left-radius: 2%;
-color: #bcbec2;;
-margin-right: .5rem; 
-
+.h-80 {
+  height: 80%;
 }
 
-.cancel-button{
-background-color: #fff;
-margin-left: auto; 
-
+.favourite-container {
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: .5rem;
+  align-items: center;
 }
 
-.favourite-item-name{
-line-height: 1.5em;
-text-align: left;
-font-size: 13px;
-font-weight: 700;
+.favourite-item-img {
+  width: 15%;
+  height: 5%;
+  border-bottom-left-radius: 2%;
+  color: #bcbec2;
+  ;
+  margin-right: .5rem;
 }
 
-#container{
-height: 70vh;
-margin-left: 27%;
-overflow-y: scroll;
+.cancel-button {
+  background-color: #fff;
+  margin-left: auto;
 }
-.main-sec{
-height: 100vh;
-overflow: hidden;
+
+.favourite-item-name {
+  line-height: 1.5em;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
 }
+
+.card-img {
+  height: 10rem;
+}
+
+#container {
+  height: 70vh;
+  margin-left:28%;
+  overflow-y: scroll;
+}
+.card-section {
+  width: 160rem;}
+.no-result {
+  margin-left: 28%;
+  font-size: 18px;
+}
+
+.main-sec {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .favourite-container::-webkit-scrollbar {
-width: 10px;
+  width: 10px;
 }
 
 #container::-webkit-scrollbar {
-width: 10px;
+  width: 10px;
 }
 
 .favourite-container::-webkit-scrollbar-thumb {
-background-color: #888;
-border-radius: 5px;
+  background-color: #888;
+  border-radius: 5px;
 }
 
 #container::-webkit-scrollbar-thumb {
-background-color: #888;
-border-radius: 5px;
+  background-color: #888;
+  border-radius: 5px;
 }
 
 .favourite-container::-webkit-scrollbar-track {
-background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 #container::-webkit-scrollbar-track {
-background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
+
 .favourite-container::-webkit-scrollbar-thumb:hover {
-background-color: #555;
+  background-color: #555;
 }
 
 #container::-webkit-scrollbar-thumb:hover {
-background-color: #555;
+  background-color: #555;
 }
 
-.favorite-button{
-direction: rtl;
-float: left;
-border: none;
-background-color: #fafafa;
-cursor: pointer;
-float: right;
+.favorite-button {
+  direction: rtl;
+  float: left;
+  border: none;
+  background-color: #fafafa;
+  cursor: pointer;
+  float: right;
   text-align: right;
-  color:#ccc ;
+  color: #ccc;
 }
-.gray-star{
-color:#ccc;
+
+.gray-star {
+  color: #ccc;
 }
+
 .orange-star {
-color: orange;
+  color: orange;
 }
-.draggable{
-border-style: solid;
-border-color: #27ae60;
+
+.draggable {
+  border-style: solid;
+  border-color: #27ae60;
 }
-.card-opicty{
-opacity: .5;
-cursor: move;
+
+.card-opicty {
+  opacity: .5;
+  cursor: move;
 }
 
 
 @media screen and (max-width: 768px) {
-   #favorite-section {
-      display: none;
+  #favorite-section {
+    display: none;
   }
-  #container{
+
+  #container {
     margin-left: 0;
   }
 
-  .filter-section{
+  .filter-section {
     flex-direction: column;
   }
-  .input-group{
+
+  .input-group {
     width: 100%;
     margin-bottom: 2rem;
   }
-  .card-section{
+
+  .card-section {
     overflow: auto;
   }
-  .region-selector{
+
+  .region-selector {
     margin-left: 1%;
     width: 40% !important;
   }
-  .card-favorite-section{
+
+  .card-favorite-section {
     margin-top: 2rem !important;
   }
 }
 @media screen and (min-width: 768px) {
-.favorite-button {
+  .favorite-button {
     display: none;
-}
+  }
 }
