@@ -8,7 +8,6 @@ function SearchBar(props) {
     setValue(newValue);
     props.onSearch(newValue);
   };
-
   return (
     <div>
       <div className="input-group shadow-sm w-30">

@@ -31,15 +31,8 @@ function App() {
     );
     setFilteredCountries(newFilteredCountries);
   };
-  // Create a function to handle region filtering
   const handleRegionChange = (region) => {
     setSelectedRegion(region);
-    // if (region === 'favorites') {
-    //   // Filter by favorites
-    //   const favorites = filteredCountries.filter();
-    //   setFilteredCountries(favorites);
-    // // }
-    //  else 
     if (region === 'all') {
       setFilteredCountries(countries);
     } else {
@@ -50,7 +43,8 @@ function App() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <header> <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      </header>
       <main className={`container-fluid me-lg-5 pt-4 ${darkMode ? 'dark-mode' : ''}`}>
         <section className="ms-lg-5">
           <div className="d-flex justify-content-between filter-section">
@@ -64,7 +58,8 @@ function App() {
             <h1 className='no-result'>No results found</h1>
           ) : (
             <Countries countries={filteredCountries} />
-          )}        </section>
+          )}
+        </section>
       </main>
     </DndProvider>
   );

@@ -9,5 +9,4 @@ function useDarkMode() {
 
   return { darkMode, toggleDarkMode };
 }
-
 export default useDarkMode;
