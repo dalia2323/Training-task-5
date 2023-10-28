@@ -35,9 +35,38 @@ function App() {
   });
 
   const handleSearch = (searchInput) => {
-    setSearchInput(searchInput);
+    if (searchInput.trim() === '') {
+      const url = 'https://restcountries.com/v3.1/all';
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if (Array.isArray(data)) {
+            setCountries(data);
+          } else {
+            console.error('API response is not an array.');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    } else {
+      const apiUrl = `https://restcountries.com/v3.1/name/${searchInput}`;
+        fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data); 
+          if (Array.isArray(data)) {
+            setCountries(data);
+          } else {
+            console.error('API response is not an array.');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
   };
-
   const handleRegionChange = (region) => {
     setSelectedRegion(region);
   };
