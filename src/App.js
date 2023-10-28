@@ -8,42 +8,44 @@ import Favrioute from './component/favrioute';
 import SearchBar from './component/search';
 import RegionSelector from './component/region-selector';
 import useDarkMode from './useDarkMode';
+
 function App() {
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [countries, setCountries] = useState([]);
-  const [filteredCountries, setFilteredCountries] = useState([]);
-  const [selectedRegion, setSelectedRegion] = useState('');
+  const [searchInput, setSearchInput] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState('all'); // Initialize with "all"
+
   useEffect(() => {
     const url = 'https://restcountries.com/v3.1/all';
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setCountries(data);
-        setFilteredCountries(data);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   }, []);
+
+  const filteredCountries = countries.filter((country) => {
+    const matchesSearch = country.name.common.toLowerCase().includes(searchInput.toLowerCase());
+    const matchesRegion = selectedRegion === 'all' || country.region === selectedRegion;
+
+    return matchesSearch && matchesRegion;
+  });
+
   const handleSearch = (searchInput) => {
-    const newFilteredCountries = countries.filter((country) =>
-      country.name.common.toLowerCase().includes(searchInput.toLowerCase())
-    );
-    setFilteredCountries(newFilteredCountries);
+    setSearchInput(searchInput);
   };
+
   const handleRegionChange = (region) => {
     setSelectedRegion(region);
-    if (region === 'all') {
-      setFilteredCountries(countries);
-    } else {
-      const regionCountries = countries.filter((country) => country.region === region);
-      setFilteredCountries(regionCountries);
-    }
   };
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <header> <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <header>
+        <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       </header>
       <main className={`container-fluid me-lg-5 pt-4 ${darkMode ? 'dark-mode' : ''}`}>
         <section className="ms-lg-5">
@@ -52,7 +54,7 @@ function App() {
             <RegionSelector onRegionChange={handleRegionChange} />
           </div>
         </section>
-        <section className="ms-lg-5 me-lg-5 d-flex  mt-5 card-favorite-section">
+        <section className="ms-lg-5 me-lg-5 d-flex mt-5 card-favorite-section">
           <Favrioute />
           {filteredCountries.length === 0 ? (
             <h1 className='no-result'>No results found</h1>
