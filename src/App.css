@@ -256,13 +256,10 @@ select,
   opacity: .5;
   cursor: move;
 }
-
-
 @media screen and (max-width: 768px) {
   #favorite-section {
     display: none;
   }
-
   #container {
     margin-left: 0;
   }

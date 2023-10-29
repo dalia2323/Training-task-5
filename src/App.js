@@ -10,10 +10,11 @@ import RegionSelector from './component/region-selector';
 import useDarkMode from './useDarkMode';
 
 function App() {
+
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [countries, setCountries] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState('all'); // Initialize with "all"
+  const [selectedRegion, setSelectedRegion] = useState('all'); 
 
   useEffect(() => {
     const url = 'https://restcountries.com/v3.1/all';
@@ -27,9 +28,11 @@ function App() {
       });
   }, []);
 
+  const regionOptions = ["Filter by", "No Filter", "Africa", "Americas", "Asia", "Europe", "Oceania"];
+
   const filteredCountries = countries.filter((country) => {
     const matchesSearch = country.name.common.toLowerCase().includes(searchInput.toLowerCase());
-    const matchesRegion = selectedRegion === 'all' || country.region === selectedRegion;
+    const matchesRegion = selectedRegion === 'all'|| selectedRegion ==='No Filter'  || country.region === selectedRegion;
 
     return matchesSearch && matchesRegion;
   });
@@ -80,8 +83,10 @@ function App() {
         <section className="ms-lg-5">
           <div className="d-flex justify-content-between filter-section">
             <SearchBar onSearch={handleSearch} />
-            <RegionSelector onRegionChange={handleRegionChange} />
-          </div>
+            <div>
+            <RegionSelector options={regionOptions} onRegionChange={handleRegionChange} />
+          </div>        
+            </div>
         </section>
         <section className="ms-lg-5 me-lg-5 d-flex mt-5 card-favorite-section">
           <Favrioute />
