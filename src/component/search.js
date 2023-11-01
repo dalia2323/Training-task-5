@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-
-function SearchBar(props) {
+function SearchBar({ onSearch }) {
   const [value, setValue] = useState('');
-
   const handleChange = (e) => {
     const newValue = e.target.value;
     setValue(newValue);
-    props.onSearch(newValue);
+    onSearch(newValue);
   };
   return (
     <div>
       <div className="input-group shadow-sm w-30">
         <span className="input-group-text border-0 search-icon">
-          <i className="fa-solid fa-magnifying-glass ps-2" style={{ color: '#858585' }}></i>
+          <i className="fa-solid fa-magnifying-glass ps-2 search-icon-1"></i>
         </span>
         <input
           value={value}
@@ -25,5 +23,4 @@ function SearchBar(props) {
     </div>
   );
 }
-
 export default SearchBar;

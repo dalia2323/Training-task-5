@@ -1,14 +1,14 @@
 import React from 'react';
 import Card from './card';
-
-const Countries = ({countries}) => {
+function Countries({ countries }) {
     return (
-        <div class="card-section">
-        <div class="row" id="container">
-        {countries.map(country=><Card country={country} />)}
+        <div className="card-section">
+            <div className="row" id="container">
+                {countries.map((country) => (
+                    <Card key={country.name.common} country={country} />
+                ))}
+            </div>
         </div>
-</div>
     );
 }
-
 export default Countries;

@@ -1,5 +1,4 @@
 import React from 'react';
-
 function NavBar(props) {
   return (
     <div className={props.darkMode ? 'dark-mode' : ''}>
@@ -14,5 +13,4 @@ function NavBar(props) {
     </div>
   );
 }
-
 export default NavBar;

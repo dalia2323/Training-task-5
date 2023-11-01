@@ -32,9 +32,6 @@ function Card({ country }) {
           </p>
           <button
             className="favorite-button"
-          // onClick={() =>
-          //   toggleFavorite(country.name.common, country.flags.png)
-          // }
           >
             <i className="fa-solid fa-star favorite-icon "></i>
           </button>

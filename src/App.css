@@ -256,6 +256,9 @@ select,
   opacity: .5;
   cursor: move;
 }
+.search-icon-1{
+  color: #858585;
+}
 @media screen and (max-width: 768px) {
   #favorite-section {
     display: none;
