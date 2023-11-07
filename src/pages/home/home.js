@@ -24,4 +24,3 @@ export default function Home(){
         </DndProvider>
       );
 }
-// export default Home;
