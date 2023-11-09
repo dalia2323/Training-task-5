@@ -1,10 +1,7 @@
 import React from 'react';
-import flagImage from '../img/af.svg';
-
-function FlagImg() {
+function FlagImg({image}) {
   return (
-    <img src={flagImage} className="img-fluid w-img mt-5" alt="Flag" />
+    <img src={image} className="img-fluid w-img mt-5" alt="Flag" />
   );
 }
-
 export default FlagImg;

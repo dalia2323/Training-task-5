@@ -3,6 +3,7 @@ import SearchBar from './search';
 import RegionSelector from './select';
 import Countries from './countries';
 import Favrioute from './favrioute';
+import debounce from 'lodash/debounce';
 function CountriesContainer() {
     const [countries, setCountries] = useState([]);
     const [searchInput, setSearchInput] = useState('');
@@ -12,11 +13,7 @@ function CountriesContainer() {
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
-                if (Array.isArray(data)) {
                     setCountries(data);
-                } else {
-                    console.error('API response is not an array.');
-                }
             } else {
                 console.error('Error:', response.status);
             }
@@ -32,14 +29,12 @@ function CountriesContainer() {
     const regionOptions = ["Filter by", "No Filter", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
     const filteredCountries = countries.filter((country) => {
-        const matchesSearch = country.name.common.toLowerCase().includes(searchInput.toLowerCase());
         const matchesRegion =
             selectedRegion === 'all' || selectedRegion === 'No Filter' || country.region === selectedRegion;
 
-        return matchesSearch && matchesRegion;
+        return  matchesRegion;
     });
-
-    const handleSearch = (searchInput) => {
+    const debouncedHandleSearch = debounce((searchInput) => {
         setSearchInput(searchInput);
         if (searchInput.trim() === '') {
             const url = 'https://restcountries.com/v3.1/all';
@@ -48,11 +43,13 @@ function CountriesContainer() {
             const apiUrl = `https://restcountries.com/v3.1/name/${searchInput}`;
             fetchData(apiUrl);
         }
+    }, 500); 
+    const handleSearch = (searchInput) => {
+        debouncedHandleSearch(searchInput);
     };
     const handleRegionChange = (region) => {
         setSelectedRegion(region);
     };
-
     return (
         <div>
             <section className="ms-lg-5">
@@ -65,7 +62,11 @@ function CountriesContainer() {
             </section>
             <section className="ms-lg-5 me-lg-5 d-flex mt-5 card-favorite-section">
                 <Favrioute />
-                <Countries countries={filteredCountries} />
+                {filteredCountries.length === 0 ? (
+                    <h1 className='no-result'>No results found</h1>
+) : (
+                    <Countries countries={filteredCountries} />
+)} 
             </section>
         </div>
     );

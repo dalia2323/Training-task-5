@@ -5,7 +5,7 @@ function Countries({ countries }) {
         <div className="card-section">
             <div className="row" id="container">
                 {countries.map((country) => (
-                    <Card key={country.name.common} country={country} />
+                    <Card key={country.name.common} country={country} code={country.cca3} />
                 ))}
             </div>
         </div>

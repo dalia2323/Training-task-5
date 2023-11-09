@@ -31,7 +31,8 @@ ul{
         background:#2b3945
     }
     .w-img{
-        width: 70%;
+        width: 80%;
+        /* height: 100%; */
     }
     .w-width{
         width: 6rem;
@@ -61,8 +62,53 @@ ul{
       .dark-mode.back-button{
         color: #fff;
       }
-
-    
+      .back-button{
+        padding-left: 2rem !important;
+      height: 30px !important;
+      box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
+      border-radius: 6px;
+      font-size: 16px;
+      }
+      .single-flag_info{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        grid-template-rows: 1fr .3fr 1fr .3fr 1fr .3fr 1fr;
+        grid-template-areas: "region tld"
+                             ".      tld"
+                             "sub    curr"
+                             ".      curr"
+                             "cap    lang"
+                             ".      lang"
+                             "pop    .";
+        column-gap: 20px;
+    }
+   /* .single-flag_neighbors{
+    display: flex;
+   } */
+  a{
+      all: unset !important;
+    }
+ 
+  
+    .neighbors-container{
+      margin-top: 10px;
+      width: 100%;
+  
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 15px;
+  }
+  
+  .neighbors-link{
+      padding: 5px 25px;
+      cursor: pointer;
+      box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
+      border-radius: 6px;
+      font-size: 14px;
+  }
+  
     @media screen and (max-width: 375px) {
      .w-img{
         width: 100%;
